@@ -1,0 +1,12 @@
+{
+  "name": "fantasy-epl",
+  "version": "0.1.0",
+  "scripts": {
+    "build": "babel js -d dist/js",
+    "watch": "babel js -w -d dist/js"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.11.4",
+    "babel-preset-es2015": "^6.13.2"
+  }
+}
