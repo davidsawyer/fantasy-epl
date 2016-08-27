@@ -56,6 +56,9 @@ TODO:
         $("#teamsSection .select2").after($("<button/>").attr("id", "teambutton").text("Go"))
 
         $("#teambutton").click(function() {
+            $("#teamsSection").nextAll().remove()
+            $(".error").remove()
+
             window.soccer.teamNameForResults = $('#teams :selected').val()
 
             var teamId = window.soccer.teamIdForResults = $('#teams :selected').data("team-id"),
@@ -76,9 +79,6 @@ TODO:
 
     function buildGameList(response) {
         window.soccer.matchesReponse = response
-
-        $("#teamsSection").nextAll().remove()
-        $(".error").remove()
 
         var $dateSortedGames = response
             .sort((a, b) => dottedDateStringToDate(a.formatted_date) - dottedDateStringToDate(b.formatted_date))
@@ -117,6 +117,9 @@ TODO:
         $("#gamesSection .select2").after($("<button/>").attr("id", "gamebutton").text("Go"))
 
         $("#gamebutton").click(function() {
+            $("#gamesSection").nextAll().remove()
+            $(".error").remove()
+
             var gameId = $('#games :selected').data("game-id"),
                 $gameButton = $("#gamebutton")
                     .attr("disabled", "disabled")
@@ -134,9 +137,6 @@ TODO:
     }
 
     function buildTable(gameCommentaryJson) {
-        $("#gamesSection").nextAll().remove()
-        $(".error").remove()
-
         var teamIdForResults = soccer.teamIdForResults,
             gameId = gameCommentaryJson.match_id,
             gameStatsJson = soccer.matchesReponse.find(game => game.id == gameId),
