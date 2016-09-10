@@ -223,5 +223,6 @@ TODO:
 
     function showError(e) {
         $("body").prepend($("<p/>").addClass("error").text("Uh oh... looks like something went wrong. Details: ").append($("<span/>").addClass("code").text(e)));
+        throw e;
     }
 })();

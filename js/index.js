@@ -331,5 +331,6 @@ TODO:
                             .text(e)
                     )
             )
+        throw e
     }
 })()
