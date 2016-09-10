@@ -18,7 +18,7 @@ TODO:
         $loadingSpan = $("<span/>").addClass("loading").text("Loading...");
         $("body").append($loadingSpan);
 
-        fetch("http://api.football-api.com/2.0/standings/1204?Authorization=" + API_KEY).then(function (response) {
+        fetch("http://46.101.162.239/api/standings/1204?Authorization=" + API_KEY).then(function (response) {
             return response.json();
         }).then(buildTeamList).catch(showError);
     });
@@ -56,7 +56,7 @@ TODO:
             var teamId = window.soccer.teamIdForResults = $('#teams :selected').data("team-id"),
                 $teamButton = $("#teambutton").attr("disabled", "disabled").after($loadingSpan);
 
-            fetch("http://api.football-api.com/2.0/matches?comp_id=1204&team_id=" + teamId + "&from_date=20160812&to_date=20170531&Authorization=" + API_KEY).then(function (response) {
+            fetch("http://46.101.162.239/api/matches?comp_id=1204&team_id=" + teamId + "&from_date=20160812&to_date=20170531&Authorization=" + API_KEY).then(function (response) {
                 return response.json();
             }).then(function (response) {
                 $teamButton.removeAttr("disabled");
@@ -100,7 +100,7 @@ TODO:
             var gameId = $('#games :selected').data("game-id"),
                 $gameButton = $("#gamebutton").attr("disabled", "disabled").after($loadingSpan);
 
-            fetch("http://api.football-api.com/2.0/commentaries/" + gameId + "?Authorization=" + API_KEY).then(function (response) {
+            fetch("http://46.101.162.239/api/commentaries/" + gameId + "?Authorization=" + API_KEY).then(function (response) {
                 return response.json();
             }).then(function (response) {
                 $gameButton.removeAttr("disabled");
