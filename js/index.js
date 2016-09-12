@@ -16,7 +16,7 @@ TODO:
         $loadingSpan = $("<span/>").addClass("loading").text("Loading...")
         $("body").append($loadingSpan)
 
-        fetch(`http://46.101.162.239/api/standings/1204?Authorization=${API_KEY}`)
+        fetch(`http://api.football-api.com/2.0/standings/1204?Authorization=${API_KEY}`)
             .then(response => response.json())
             .then(buildTeamList)
             .catch(showError)
@@ -66,7 +66,7 @@ TODO:
                     .attr("disabled", "disabled")
                     .after($loadingSpan);
 
-            fetch(`http://46.101.162.239/api/matches?comp_id=1204&team_id=${teamId}&from_date=20160812&to_date=20170531&Authorization=${API_KEY}`)
+            fetch(`http://api.football-api.com/2.0/matches?comp_id=1204&team_id=${teamId}&from_date=20160812&to_date=20170531&Authorization=${API_KEY}`)
                 .then(response => response.json())
                 .then(response => {
                     $teamButton.removeAttr("disabled")
@@ -125,7 +125,7 @@ TODO:
                     .attr("disabled", "disabled")
                     .after($loadingSpan);
 
-            fetch(`http://46.101.162.239/api/commentaries/${gameId}?Authorization=${API_KEY}`)
+            fetch(`http://api.football-api.com/2.0/commentaries/${gameId}?Authorization=${API_KEY}`)
                 .then(response => response.json())
                 .then(response => {
                     $gameButton.removeAttr("disabled")
