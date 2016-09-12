@@ -1,12 +1,5 @@
 "use strict";
 
-/*
-
-TODO:
-    - consider adding a key that notes how points are calculated
-
-*/
-
 (function () {
 
     var API_KEY = "565ec012251f932ea4000001cafc2a100a034ce6614e2d2c36138196";
