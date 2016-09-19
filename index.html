@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>Fantasy EPL</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <script>
         var _rollbarConfig = {
             accessToken: "b0d738e7da7c47e39aa024d5d95be443",
@@ -19,11 +19,24 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/1.0.0/fetch.min.js"></script>
     <style>
+        html {
+            box-sizing: border-box;
+        }
+        *, *:before, *:after {
+            box-sizing: inherit;
+        }
+
         body {
             font-family: -apple-system, Helvetica, Arial, sans-serif;
             max-width: 700px;
             margin: 0 auto;
             padding: 2em;
+        }
+
+        @media only screen and (max-width: 700px) {
+            body {
+                padding: 1.3em;
+            }
         }
 
         p {
