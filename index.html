@@ -102,7 +102,61 @@
             -webkit-overflow-scrolling: touch;
         }
     </style>
-    <script src="/dist/js/index.js?1473698504540"></script>
+    <script type="text/template" id="resultsTableTemplate">
+        <table id="results">
+            <tr>
+                <th>Category</th>
+                <th>Game Stats</th>
+                <th>Points Awarded</th>
+            </tr>
+            <tr>
+                <td>Result</td>
+                <td><%= gameResult %></td>
+                <td><%= gameResultPoints %></td>
+            </tr>
+            <tr>
+                <td>Goals Scored</td>
+                <td><%= goalsScored %></td>
+                <td><%= goalsScoredPoints %></td>
+            </tr>
+            <tr>
+                <td>Goals Allowed</td>
+                <td><%= goalsAllowed %></td>
+                <td><%= goalsAllowedPoints %></td>
+            </tr>
+            <tr>
+                <td>Shots on Goal</td>
+                <td><%= shotsOnGoal %></td>
+                <td><%= shotsOnGoalPoints %></td>
+            </tr>
+            <tr>
+                <td>First Goal?</td>
+                <td><%= hadFirstGoal ? "yes" : "no" %></td>
+                <td><%= hadFirstGoalPoints %></td>
+            </tr>
+            <tr>
+                <td>Saves</td>
+                <td><%= saves %></td>
+                <td><%= savesPoints %></td>
+            </tr>
+            <tr>
+                <td>PK Saves</td>
+                <td id="pkSaves"><%= numOfUnsuccessfulPks ? "" : 0 %></td>
+                <td id="pkSavesPoints"><%= numOfUnsuccessfulPks ? "???" : 0 %></td>
+            </tr>
+            <tr>
+                <td>Yellow Cards</td>
+                <td><%= yellowCards %></td>
+                <td><%= yellowCardsPoints %></td>
+            </tr>
+            <tr>
+                <td>Red Cards</td>
+                <td><%= redCards %></td>
+                <td><%= redCardsPoints %></td>
+            </tr>
+        </table>
+    </script>
+    <script src="/dist/js/index.js?1474688848280"></script>
 </head>
 <body>
 </body>

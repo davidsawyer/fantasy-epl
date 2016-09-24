@@ -191,60 +191,29 @@
                 yellowCardsPoints +
                 redCardsPoints
 
-        var $table = $("<table/>")
-            .attr("id", "results")
-            .append($("<tr/>")
-                .append($("<th/>").text("Category"))
-                .append($("<th/>").text("Game Stats"))
-                .append($("<th/>").text("Points Awarded"))
-            )
-            .append($("<tr/>")
-                .append($("<td/>").text("Result"))
-                .append($("<td/>").text(gameResult))
-                .append($("<td/>").text(gameResultPoints))
-            )
-            .append($("<tr/>")
-                .append($("<td/>").text("Goals Scored"))
-                .append($("<td/>").text(goalsScored))
-                .append($("<td/>").text(goalsScoredPoints))
-            )
-            .append($("<tr/>")
-                .append($("<td/>").text("Goals Allowed"))
-                .append($("<td/>").text(goalsAllowed))
-                .append($("<td/>").text(goalsAllowedPoints))
-            )
-            .append($("<tr/>")
-                .append($("<td/>").text("Shots on Goal"))
-                .append($("<td/>").text(shotsOnGoal))
-                .append($("<td/>").text(shotsOnGoalPoints))
-            )
-            .append($("<tr/>")
-                .append($("<td/>").text("First Goal?"))
-                .append($("<td/>").text(hadFirstGoal ? "yes" : "no"))
-                .append($("<td/>").text(hadFirstGoalPoints))
-            )
-            .append($("<tr/>")
-                .append($("<td/>").text("Saves"))
-                .append($("<td/>").text(saves))
-                .append($("<td/>").text(savesPoints))
-            )
-            .append($("<tr/>")
-                .append($("<td/>").text("PK Saves"))
-                .append($("<td/>").attr("id", "pkSaves").text(numOfUnsuccessfulPks ? "" : 0))
-                .append($("<td/>").attr("id", "pkSavesPoints").text(numOfUnsuccessfulPks ? "???" : 0))
-            )
-            .append($("<tr/>")
-                .append($("<td/>").text("Yellow Cards"))
-                .append($("<td/>").text(yellowCards))
-                .append($("<td/>").text(yellowCardsPoints))
-            )
-            .append($("<tr/>")
-                .append($("<td/>").text("Red Cards"))
-                .append($("<td/>").text(redCards))
-                .append($("<td/>").text(redCardsPoints))
-            )
+        var results = {
+            gameResult: gameResult,
+            gameResultPoints: gameResultPoints,
+            goalsScored: goalsScored,
+            goalsScoredPoints: goalsScoredPoints,
+            goalsAllowed: goalsAllowed,
+            goalsAllowedPoints: goalsAllowedPoints,
+            shotsOnGoal: shotsOnGoal,
+            shotsOnGoalPoints: shotsOnGoalPoints,
+            hadFirstGoal: hadFirstGoal,
+            hadFirstGoalPoints: hadFirstGoalPoints,
+            saves: saves,
+            savesPoints: savesPoints,
+            yellowCards: yellowCards,
+            yellowCardsPoints: yellowCardsPoints,
+            redCards: redCards,
+            redCardsPoints: redCardsPoints,
+            numOfUnsuccessfulPks: numOfUnsuccessfulPks,
+            totalPoints: totalPoints
+        }
 
-        $("p").last().after($table)
+        var tableTemplate = _.template($("#resultsTableTemplate").html());
+        $("p").last().after(tableTemplate(results));
 
         if (numOfUnsuccessfulPks) {
             var pkSavesCommentary = gameCommentaryJson.comments.filter(comment => {
