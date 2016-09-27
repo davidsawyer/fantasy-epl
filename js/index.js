@@ -286,12 +286,7 @@
             .prepend(
                 $("<p/>")
                     .addClass("error")
-                    .text("Uh oh... looks like something went wrong. Details: ")
-                    .append(
-                        $("<span/>")
-                            .addClass("code")
-                            .text(e)
-                    )
+                    .text("Uh oh... looks like something went wrong. Refresh the page and try again.")
             )
         throw e
     }
