@@ -53,6 +53,7 @@
             $(".error").remove()
 
             window.soccer.teamNameForResults = $('#teams :selected').val()
+            notifyRollbarOfGlobalChange(window.soccer)
 
             var teamId = window.soccer.teamIdForResults = $('#teams :selected').data("team-id"),
                 $teamButton = $("#teambutton")
@@ -72,6 +73,7 @@
 
     function buildGameList(response) {
         window.soccer.matchesReponse = response
+        notifyRollbarOfGlobalChange(window.soccer)
 
         var $dateSortedGames = response
             .sort((a, b) => dottedDateStringToDate(a.formatted_date) - dottedDateStringToDate(b.formatted_date))
@@ -289,5 +291,13 @@
                     .text("Uh oh... looks like something went wrong. Refresh the page and try again.")
             )
         throw e
+    }
+
+    function notifyRollbarOfGlobalChange(soccerObj) {
+        Rollbar.configure({
+            payload: {
+                soccer: soccerObj
+            }
+        });
     }
 })()
